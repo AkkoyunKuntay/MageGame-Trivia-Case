@@ -1,0 +1,56 @@
+{
+  "page": 1,
+  "is_last": true,
+  "data": [
+    {
+      "rank": 11,
+      "nickname": "dwheatleya",
+      "score": 11
+    },
+    {
+      "rank": 12,
+      "nickname": "lspohrmannb",
+      "score": 12
+    },
+    {
+      "rank": 13,
+      "nickname": "lpinsentc",
+      "score": 13
+    },
+    {
+      "rank": 14,
+      "nickname": "molifauntd",
+      "score": 14
+    },
+    {
+      "rank": 15,
+      "nickname": "kplumptree",
+      "score": 15
+    },
+    {
+      "rank": 16,
+      "nickname": "gnouryf",
+      "score": 16
+    },
+    {
+      "rank": 17,
+      "nickname": "pkirmang",
+      "score": 17
+    },
+    {
+      "rank": 18,
+      "nickname": "jbaddileyh",
+      "score": 18
+    },
+    {
+      "rank": 19,
+      "nickname": "kchristofori",
+      "score": 19
+    },
+    {
+      "rank": 20,
+      "nickname": "oapplebeej",
+      "score": 20
+    }
+  ]
+}
