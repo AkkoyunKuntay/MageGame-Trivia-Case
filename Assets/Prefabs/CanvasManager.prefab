@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.7
+  m_fontSize: 63.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2252,10 +2252,6 @@ MonoBehaviour:
   itemHeight: 100
   spacing: 5
   boundary: 800
-  data:
-    rank: 0
-    nickname: 
-    score: 0
   scrollDelta: {x: 0, y: 0}
   currentScrollPosition: {x: 0, y: 0}
   previousScrollPosition: {x: 0, y: 0}
@@ -2675,7 +2671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e921f0d24eb5394fa5e94a78a95ce3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingTime: 5
+  startingTime: 20
   currentTime: 0
   fillerImg: {fileID: 1216784161906615934}
   timerTXT: {fileID: 1216784162362212005}
@@ -2950,7 +2946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.36487365, b: 1, a: 1}
+  m_Color: {r: 0.39607847, g: 0, b: 0.8352942, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
