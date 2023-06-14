@@ -38,6 +38,8 @@ public class OptionController : MonoBehaviour
 
     public void OnButtonClicked()
     {
+        if (!TimerController.instance.IsCounting()) return;
+
         TimerController.instance.StopTimer();
         OptionSelectedEvent?.Invoke(this);
     }
@@ -73,7 +75,6 @@ public class OptionController : MonoBehaviour
         transform.localScale = Vector3.zero;
         button.targetGraphic.color = defaultColor;
     }
-   
 
     #region Events
     private void OnQuestionChanged()

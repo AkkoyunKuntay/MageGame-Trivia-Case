@@ -31,10 +31,12 @@ public class TimerController : CustomSingleton<TimerController>
         timerTXT.text = ((int)(currentTime)).ToString();
         QuestionManager.instance.QuestionChangedEvent += OnQuestionChanged;
     }
+
     private void Update()
     {
         if (!GameManager.instance.isLevelActive) return;
         if (!counting) return;
+
         CountDownTimer();
     }
     public void StopTimer()
@@ -46,6 +48,10 @@ public class TimerController : CustomSingleton<TimerController>
         currentTime = startingTime;
         fillerImg.fillAmount = currentTime / startingTime;
         timerTXT.text = ((int)(currentTime)).ToString();
+    }
+    public bool IsCounting()
+    {
+        return counting;
     }
     public float GetCurrentTimer()
     {

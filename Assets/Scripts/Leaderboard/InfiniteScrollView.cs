@@ -3,26 +3,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
-public class InfiniteScrollView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InfiniteScrollView : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     [Header("References")]
-    public LeaderboardElement listItemPrefab; // Görüntülenecek veri öðelerini temsil eden prefab
-    public RectTransform contentTransform; // Scroll View'in içindeki Content objesi
+    public LeaderboardElement listItemPrefab; // prefab that represents the data items to display
+    public RectTransform contentTransform; // SContent object inside Scroll View
 
     [SerializeField] LeaderBoardReader lbJsonReader;
-    private List<Datum> dataList; // Veri listesi
-    int currentIndex = 0; // Geçerli veri indeksi
-    private float contentHeight; // Content objesi yüksekliði
-    private Vector2 contentOffset; // Content objesi pozisyonu
+    private List<Datum> dataList;
+    int currentIndex = 0; // Current data index
+    private float contentHeight; 
 
     [Header("Settings")]
-    public int visibleItemCount = 5; // Görüntülenecek veri öðesi sayýsý
-    public float itemHeight = 100f; // Veri öðesi yüksekliði
-    public float spacing = 10f; // Veri öðeleri arasýndaki boþluk
+    public int visibleItemCount = 5; // Number of data items to display
+    public float itemHeight = 100f; 
+    public float spacing = 10f;
     public float boundary;
 
     [Header("Debug")]
-    [SerializeField] Datum data;
     [SerializeField] Vector2 scrollDelta;
     ScrollRect scrollRect;
     [SerializeField] Vector2 currentScrollPosition;
@@ -39,7 +37,7 @@ public class InfiniteScrollView : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         dataList = new List<Datum>();
         lbJsonReader = GetComponent<LeaderBoardReader>();
-        // Görüntülenecek ilk veri öðelerini oluþtur
+        // Create the first data items to display
         for (int i = 0; i < visibleItemCount; i++)
         {
             CreateListItem(i);
@@ -62,12 +60,12 @@ public class InfiniteScrollView : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         if (scrollDelta.y < 0f && !isPulling)
         {
-            // Aþaðý doðru scroll yapýlýyorsa ve çekme iþlemi yapýlýyorsa
+            // If scrolling down and pulling
             isPulling = true;
         }
         else if (scrollDelta.y > 0f && isPulling)
         {
-            // Yukarý doðru scroll yapýlýyorsa ve çekme iþlemi tamamlandýysa
+            // If scrolling upwards and pulling is complete
             isPulling = false;
         }
 
@@ -77,7 +75,7 @@ public class InfiniteScrollView : MonoBehaviour, IBeginDragHandler, IDragHandler
 
             if (-pullDistance >= boundary)
             {
-                // Yeni içerik eklemek için gerekli çekme mesafesi aþýldý
+                // Required pull distance exceeded to add new content
                 if (currentIndex >= dataList.Count) return;
                 currentIndex += visibleItemCount;
                 for (int i = 0; i < visibleItemCount; i++)
@@ -108,7 +106,7 @@ public class InfiniteScrollView : MonoBehaviour, IBeginDragHandler, IDragHandler
         }
     }
 
-    // Farklý bir veri kaynaðýndan veri almak için bu metod özelleþtirilebilir
+    // This method can be customized to get data from a different data source
     private Datum FetchDataFromSource(int index)
     {
         Datum data = lbJsonReader.RequestElementData(index);        
@@ -123,9 +121,5 @@ public class InfiniteScrollView : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         currentScrollPosition = eventData.position;
         scrollDelta = previousScrollPosition - currentScrollPosition;
-    }
-    public void OnEndDrag(PointerEventData eventData)
-    {
-
     }
 }

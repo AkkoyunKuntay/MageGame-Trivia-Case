@@ -25,14 +25,13 @@ public class ResponseManager : CustomSingleton<ResponseManager>
     }
     private void Start()
     {
-        QuestionManager.instance.QuestionChangedEvent += OnQuestionChanged;
         TimerController.instance.TimeIsUpEvent += OnTimeIsUp;
     }
     public List<OptionController> GetChoiseList()
     {
         return choiseList;
     }
-    private void SetBlockerPanelStatus(bool isActive)
+    public void SetBlockerPanelStatus(bool isActive)
     {
         if (isActive) blockerPanel.SetActive(true);
         else blockerPanel.SetActive(false);
@@ -99,10 +98,5 @@ public class ResponseManager : CustomSingleton<ResponseManager>
         OptionController trueChoise = FindTrueAnswer();
         trueChoise.SetButtonColor(Color.green);
     }
-    private void OnQuestionChanged()
-    {
-        SetBlockerPanelStatus(false);
-    }
-
     #endregion
 }

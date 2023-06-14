@@ -11,7 +11,6 @@ public class QuestionSequenceMaker : MonoBehaviour
 
     private void OnRefreshPanel()
     {
-        
         AnimateAllOptionButtons();
     }
     private void AnimateAllOptionButtons()
@@ -27,5 +26,7 @@ public class QuestionSequenceMaker : MonoBehaviour
             option.ScaleButtonUp();
             yield return new WaitForSeconds(.1f);
         }
+        
+        
     }
 }

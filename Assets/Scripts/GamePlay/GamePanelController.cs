@@ -27,6 +27,9 @@ public class GamePanelController : CustomSingleton<GamePanelController>
     private IEnumerator AnimateUI()
     {
         transform.DOMove(originalPos, 1f).From(startingPos);
+   
+        yield return new WaitForSeconds(1f);
+        ResponseManager.instance.SetBlockerPanelStatus(false);
         yield return new WaitUntil(() =>
         {
             return ResponseManager.instance.isAnswerGiven || TimerController.instance.GetCurrentTimer() <= 0;
@@ -36,6 +39,7 @@ public class GamePanelController : CustomSingleton<GamePanelController>
         yield return new WaitForSeconds(1f); 
         transform.DOMove(targetPos, 1f).From(originalPos).OnComplete(()=> 
         {
+
             TimerController.instance.ResetTimer();
         });
         yield return new WaitForSeconds(0.5f);
